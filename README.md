@@ -10,7 +10,7 @@ This exercise provides candidates the opportunity to demonstrate a working knowl
 When you have completed your changes, please submit a pull-request.
 
 # Getting started
-Clone this repository and use the steps detailed below:
+Fork this repository and use the steps detailed below:
 
 ### To run the back-end WebAPI
 `cd .\api\src\Todo.Api\`
