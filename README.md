@@ -6,8 +6,22 @@ This exercise provides candidates the opportunity to demonstrate a working knowl
 - Unit testing
 - Git
 
-# Submit your changes
-When you have completed your changes, please submit a pull-request.
+# Getting started
+
+1. Please clone this repository and upload it to your own account.
+
+   - Create a new repository at github.com
+     - Make it public
+     - Don't initialize it with a README, .gitignore, or license
+   - Clone this repository to your local machine
+     - `git clone https://github.com/mortware/todo`
+     - Switch to the repo directory `cd todo`
+   - Give the local repository an 'origin' that points to your repository.
+     - `git remote add origin https://github.com/[your-account]/[your-repo].git` 
+   - Push the local repository to your repository on github.
+     - `git push --set-upstream origin main`
+
+2. When you have finished the exercise, please provide a link to the new repository.
 
 # Getting started
 Fork this repository and use the steps detailed below:
