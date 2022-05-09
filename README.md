@@ -8,24 +8,20 @@ This exercise provides candidates the opportunity to demonstrate a working knowl
 
 # Getting started
 
-1. Please clone this repository and upload it to your own account.
+## Get a copy of the code
+- Create a new repository at github.com
+  - Make it public
+  - Don't initialize it with a README, .gitignore, or license
+- Clone this repository to your local machine
+  - `git clone https://github.com/mortware/todo`
+  - Switch to the repo directory `cd todo`
+- Replace the origin with your own repository.
+  - `git remote rm origin`
+  - `git remote add origin https://github.com/[your-account]/[your-repo].git`
+- Push the local repository to your repository on github.
+  - `git push --set-upstream origin main`
 
-   - Create a new repository at github.com
-     - Make it public
-     - Don't initialize it with a README, .gitignore, or license
-   - Clone this repository to your local machine
-     - `git clone https://github.com/mortware/todo`
-     - Switch to the repo directory `cd todo`
-   - Replace the origin with your own repository.
-     - `git remote rm origin`
-     - `git remote add origin https://github.com/[your-account]/[your-repo].git`
-   - Push the local repository to your repository on github.
-     - `git push --set-upstream origin main`
-
-2. When you have finished the exercise, please provide a link to the new repository.
-
-# Getting started
-Fork this repository and use the steps detailed below:
+When you have finished the exercise, please provide a link to the new repository.
 
 ### To run the back-end WebAPI
 `cd .\api\src\Todo.Api\`
