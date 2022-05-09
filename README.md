@@ -16,8 +16,9 @@ This exercise provides candidates the opportunity to demonstrate a working knowl
    - Clone this repository to your local machine
      - `git clone https://github.com/mortware/todo`
      - Switch to the repo directory `cd todo`
-   - Give the local repository an 'origin' that points to your repository.
-     - `git remote add origin https://github.com/[your-account]/[your-repo].git` 
+   - Replace the origin with your own repository.
+     - `git remote rm origin`
+     - `git remote add origin https://github.com/[your-account]/[your-repo].git`
    - Push the local repository to your repository on github.
      - `git push --set-upstream origin main`
 
