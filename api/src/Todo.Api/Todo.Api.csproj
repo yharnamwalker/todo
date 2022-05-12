@@ -6,6 +6,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="Responses\**" />
+      <Content Remove="Responses\**" />
+      <EmbeddedResource Remove="Responses\**" />
+      <None Remove="Responses\**" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
         <PackageReference Include="MediatR" Version="10.0.1" />
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
@@ -14,11 +21,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Todo.Data\Todo.Data.csproj" />
-      <ProjectReference Include="..\Todo\Todo.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Responses" />
     </ItemGroup>
 
 </Project>
