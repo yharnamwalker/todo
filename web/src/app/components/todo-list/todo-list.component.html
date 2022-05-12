@@ -2,7 +2,7 @@
 
     <article>
         <form [formGroup]="form" (submit)="submit()">
-            <input type="text" placeholder="Create new item" formControlName="text">
+            <input type="text" placeholder="Create new item" formControlName="text" required>
             <button type="submit"  [disabled]="form.invalid || inProgress">Submit</button>    
         </form>
         
