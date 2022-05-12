@@ -12,12 +12,7 @@ export class TodoService {
 
   private refreshList$ = new BehaviorSubject<boolean>(true);
 
-  //list$: Observable<TodoItem[]>;
-
   constructor(private http: HttpClient) {
-
-    //this.list$ = this.list();
-
   }
 
   list(showCompletedItems: boolean): Observable<TodoItem[]> {
