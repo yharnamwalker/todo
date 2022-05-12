@@ -1,4 +1,4 @@
-﻿using Todo.Api.Requests;
+﻿using Todo.Data.Models;
 
 namespace Todo.Data;
 

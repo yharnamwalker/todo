@@ -1,4 +1,4 @@
-namespace Todo.Api.Requests;
+namespace Todo.Data.Models;
 
 public class TodoItem
 {
