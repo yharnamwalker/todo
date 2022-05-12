@@ -33,7 +33,7 @@ export class TodoListComponent extends BaseComponent {
 
   submit() {
     this.inProgress = true;
-    this.todoService.create(this.form.get('text')?.value)
+    this.todoService.create(this.form.get('text')?.value.toUpperCase())
       .subscribe(() => this.form.reset()).add(() => this.inProgress = false);
   }
 
