@@ -12,15 +12,17 @@
             </label>
         </div> 
     </article>
-    <article *ngFor="let item of vm.items">
+    <article *ngFor="let item of vm.items | todoListFilter: showCompletedItems">
         <div class="control">
+            <input type="checkbox" (change)="completeItem(item)" *ngIf="!item.completed" />
             <fa-icon [icon]="faCheck" *ngIf="item.completed"></fa-icon>
         </div>
         <div class="text" [class.completed]="item.completed">
             {{ item.text }}
         </div>
-        <div class="created">
-            {{ item.created | date:'EEE, dd MMM yyyy' }}
+        <div class="item-info">
+            <p>Created: {{ item.created | date:'EEE, dd MMM yyyy' }}</p>
+            <p *ngIf="item.completed">Completed: {{ item.completed | date:'EEE, dd MMM yyyy' }}</p>
         </div>
     </article>
 </div>

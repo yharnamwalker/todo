@@ -4,6 +4,7 @@ import { catchError, map, Observable, throwError } from 'rxjs';
 import { TodoService } from 'src/app/core/services/todo.service';
 import { BaseComponent } from '../base.component';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { TodoItem } from '../../core/models';
 
 @Component({
   selector: 'app-todo-list',
@@ -39,6 +40,17 @@ export class TodoListComponent extends BaseComponent {
   toggleShowCompletedItems() {
     this.showCompletedItems = !this.showCompletedItems;
     this.vm$ = this.getList();
+  }
+
+  completeItem(todoItem: TodoItem)
+  {
+    this.todoService.completeItem(todoItem.id)
+      .subscribe({
+        next: (completedDate) => todoItem.completed = completedDate,
+        error: (err) => {
+          console.log(err);
+        }
+      });
   }
   
   getList() {

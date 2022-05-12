@@ -30,4 +30,8 @@ export class TodoService {
       })
     );
   }
+
+  completeItem(itemId: string): Observable<Date> {
+    return this.http.post<Date>(`${TodoService.BasePath}/completeItem`, { Id: itemId });
+  }
 }

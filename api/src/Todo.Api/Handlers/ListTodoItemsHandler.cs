@@ -13,7 +13,7 @@ public class ListTodoItemsHandler : IRequestHandler<ListTodoItemsRequest, IEnume
 
     public async Task<IEnumerable<TodoItem>> Handle(ListTodoItemsRequest request, CancellationToken cancellationToken)
     {
-        var result =  await _todoRepository.List(request.ShowCompletedItems);
+        var result =  await _todoRepository.ListAsync(request.ShowCompletedItems);
         return result.OrderByDescending(x => x.Created);
     }
 }

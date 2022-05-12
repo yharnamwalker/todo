@@ -20,7 +20,7 @@ public class CreateTodoItemHandler : IRequestHandler<CreateTodoItemRequest, Guid
             Text = request.Text
         };
 
-        var itemId = await _todoRepository.Create(item);
+        var itemId = await _todoRepository.CreateAsync(item);
         return itemId;
     }
 }

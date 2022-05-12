@@ -12,7 +12,12 @@ public class TodoRepository: ITodoRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<TodoItem>> List(bool retrieveCompletedItems)
+    public async Task<TodoItem> GetTodoItemByIdAsync(Guid id)
+    {
+        return await _context.TodoItems.FirstOrDefaultAsync(x => x.Id.Equals(id));
+    }
+
+    public async Task<IEnumerable<TodoItem>> ListAsync(bool retrieveCompletedItems)
     {
         return await _context
             .TodoItems
@@ -20,10 +25,16 @@ public class TodoRepository: ITodoRepository
             .ToArrayAsync();
     }
 
-    public async Task<Guid> Create(TodoItem newItem)
+    public async Task<Guid> CreateAsync(TodoItem newItem)
     {
         await _context.TodoItems.AddAsync(newItem);
         await _context.SaveChangesAsync();
         return newItem.Id;
+    }
+
+    public async Task UpdateAsync(TodoItem item)
+    {
+        _context.TodoItems.Update(item);
+        await _context.SaveChangesAsync();
     }
 }
