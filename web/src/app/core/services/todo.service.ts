@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
 import { TodoItem } from '../models';
 
@@ -12,22 +12,24 @@ export class TodoService {
 
   private refreshList$ = new BehaviorSubject<boolean>(true);
 
-  list$: Observable<TodoItem[]>;
+  //list$: Observable<TodoItem[]>;
 
   constructor(private http: HttpClient) {
 
-    this.list$ = this.list();
+    //this.list$ = this.list();
 
   }
 
-  private list(): Observable<TodoItem[]> {
+  list(showCompletedItems: boolean): Observable<TodoItem[]> {
+    // Could be improved on with some pagination
+    let parameters = new HttpParams().set("showCompletedItems", showCompletedItems);
     return this.refreshList$.pipe(switchMap(
-      _ => this.http.get<TodoItem[]>(TodoService.BasePath + '/list')
+      _ => this.http.get<TodoItem[]>(`${TodoService.BasePath}/list`, {params: parameters})
     ))
   }
 
   create(text: string): Observable<string> {
-    return this.http.post<string>(TodoService.BasePath + '/create', { text }).pipe(
+    return this.http.post<string>(`${TodoService.BasePath}/create`, { text }).pipe(
       tap(_ => {
         this.refreshList$.next(false);
       })

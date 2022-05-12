@@ -15,7 +15,8 @@ export class TodoListComponent extends BaseComponent {
   vm$: Observable<any>;
   form: FormGroup;
   faCheck = faCheck;
-  inProgress : boolean = false;
+  inProgress: boolean = false;
+  showCompletedItems: boolean = false;
 
   constructor(
     private todoService: TodoService,
@@ -26,7 +27,22 @@ export class TodoListComponent extends BaseComponent {
       text: new FormControl(null)
     })
 
-    this.vm$ = this.todoService.list$.pipe(
+    this.vm$ = this.getList();
+  }
+
+  submit() {
+    this.inProgress = true;
+    this.todoService.create(this.form.get('text')?.value)
+      .subscribe(() => this.form.reset()).add(() => this.inProgress = false);
+  }
+
+  toggleShowCompletedItems() {
+    this.showCompletedItems = !this.showCompletedItems;
+    this.vm$ = this.getList();
+  }
+  
+  getList() {
+     return this.todoService.list(this.showCompletedItems).pipe(
       map(items => {
         return {
           items
@@ -37,11 +53,5 @@ export class TodoListComponent extends BaseComponent {
         return throwError(() => err);
       })
     );
-  }
-
-  submit() {
-    this.inProgress = true;
-    this.todoService.create(this.form.get('text')?.value)
-      .subscribe(() => this.form.reset()).add(() => this.inProgress = false);
   }
 }

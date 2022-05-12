@@ -14,6 +14,8 @@ html {
         filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
+        flex-direction: row;
 
         .control {
             width: 2em;
@@ -39,16 +41,35 @@ html {
             font-size: 0.8rem;
             color: rgba(0, 0, 0, 0.5);
         }
+
+        .filterControls { 
+            flex: 1;
+            margin-top: 10px;
+
+            input,label{
+                cursor: pointer;
+            }
+        }
     }
 
     form {
         display: flex;
         flex: 1;
-        //align-items: center;
+        flex-basis: 100%;
         input {
             padding: 0.5rem;
             flex: 1;
             margin-right: 1rem;
         }
     }
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

@@ -5,7 +5,12 @@
             <input type="text" placeholder="Create new item" formControlName="text" required>
             <button type="submit"  [disabled]="form.invalid || inProgress">Submit</button>    
         </form>
-        
+        <div class = "filterControls">
+            <label class="noselect" for="chkShowCompletedItems">                
+                <input id="chkShowCompletedItems" type="checkbox" [checked]="showCompletedItems" (change)="toggleShowCompletedItems()" />
+                Show Completed
+            </label>
+        </div> 
     </article>
     <article *ngFor="let item of vm.items">
         <div class="control">

@@ -12,10 +12,11 @@ public class TodoRepository: ITodoRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<TodoItem>> List()
+    public async Task<IEnumerable<TodoItem>> List(bool retrieveCompletedItems)
     {
         return await _context
             .TodoItems
+            .Where(x => retrieveCompletedItems || !x.Completed.HasValue)
             .ToArrayAsync();
     }
 
