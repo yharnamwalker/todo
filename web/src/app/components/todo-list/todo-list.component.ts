@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { TodoService } from 'src/app/core/services/todo.service';
 import { BaseComponent } from '../base.component';
@@ -15,6 +15,7 @@ export class TodoListComponent extends BaseComponent {
   vm$: Observable<any>;
   form: FormGroup;
   faCheck = faCheck;
+  inProgress : boolean = false;
 
   constructor(
     private todoService: TodoService,
@@ -39,7 +40,8 @@ export class TodoListComponent extends BaseComponent {
   }
 
   submit() {
+    this.inProgress = true;
     this.todoService.create(this.form.get('text')?.value)
-      .subscribe(() => this.form.reset());
+      .subscribe(() => this.form.reset()).add(() => this.inProgress = false);
   }
 }
