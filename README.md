@@ -1,11 +1,3 @@
-# Todo Exercise
-
-This exercise provides candidates the opportunity to demonstrate a working knowledge of the following subjects:
-- Angular 2+ (currently 13)
-- ASP.NET WebApi (currently .NET 6)
-- Unit testing
-- Git
-
 # Getting started
 
 ## Get a copy of the code
